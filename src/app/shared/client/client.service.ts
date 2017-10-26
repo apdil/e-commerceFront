@@ -11,6 +11,7 @@ export class ClientService {
   private email: string;
   private birthdate: Date;
   private sex: boolean;
+  private token: string;
 
 
   constructor() { }
@@ -75,5 +76,14 @@ export class ClientService {
 
   getSex() {
       return this.sex;
+  }
+
+  setToken(token: string) {
+    this.token = token;
+    return this;
+  }
+
+  getToken() {
+    return this.token;
   }
 }
