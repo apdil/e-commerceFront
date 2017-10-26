@@ -6,7 +6,6 @@ export class PreparateurService {
   private id;
   private name;
   private mdp;
-  private commandes;
 
   constructor() { }
 
