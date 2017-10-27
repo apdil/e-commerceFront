@@ -20,10 +20,12 @@ export class AjaxClientService {
   }
 
   sinscrire(client: ClientService) {
-    return this.http.post('http://localhost:8000/client', client).toPromise();
+    return this.http.post('http://localhost:8000/client', client)
+    .subscribe((content) => { console.log(content); });
   }
 
   post() {
-    return this.http.post('http://localhost:8000/auth-tokens', this.client).toPromise();
+    return this.http.post('http://localhost:8000/auth-tokens', this.client)
+    .subscribe((content) => { console.log(content); });
   }
 }

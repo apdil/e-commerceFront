@@ -20,7 +20,7 @@ export class CreateClientComponent implements OnInit {
   ngOnInit() {
     this.formulaire = this.form.group({
       nom: ['', [Validators.required, Validators.minLength(2)]],
-      psw: ['', [Validators.required, Validators.minLength(2)]],
+      psw: ['', [Validators.required, Validators.minLength(5)]],
       lastname: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       birthdate: ['', [Validators.required]],
@@ -28,7 +28,7 @@ export class CreateClientComponent implements OnInit {
       });
   }
 
-  aa() {
+  createClient() {
     if (this.formulaire.valid) {
       this.client.setName(this.formulaire.value.nom);
       this.client.setPlainPassword(this.formulaire.value.psw);

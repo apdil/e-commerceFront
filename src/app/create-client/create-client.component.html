@@ -16,7 +16,11 @@
     <input type="date" formControlName="birthdate" placeholder="birthdate">
   </p>
   <p>
-    <input type="text" formControlName="sex" placeholder="sex">
+    <label for="genderChoice1">Homme</label>
+    <input type="radio" id="genderChoice1" formControlName="sex" value="false">
+
+    <label for="genderChoice2">Femme</label>
+    <input type="radio" id="genderChoice2" formControlName="sex" value="true">
   </p>
-  <button (click)="aa()" [disabled]="formulaire.invalid">Go !</button>  
+  <button (click)="createClient()" [disabled]="formulaire.invalid">Inscription</button>  
 </form>
