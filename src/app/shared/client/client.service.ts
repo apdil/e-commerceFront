@@ -5,13 +5,11 @@ export class ClientService {
 
   private id: number;
   private name: string;
-  private password: string;
   private plainPassword: string;
   private lastname: string;
   private email: string;
-  private birthdate: Date;
+  private birthdate: string;
   private sex: boolean;
-  private token: string;
 
 
   constructor() { }
@@ -24,14 +22,6 @@ export class ClientService {
 
   getName() {
       return this.name;
-  }
-
-  getPassword() {
-    return this.password;
-  }
-
-  setPassword(password: string) {
-      this.password = password;
   }
 
   getPlainPassword() {
@@ -60,7 +50,7 @@ export class ClientService {
       return this.email;
   }
 
-  setBirthdate(birthdate: Date) {
+  setBirthdate(birthdate: string) {
       this.birthdate = birthdate;
       return this;
   }
@@ -76,14 +66,5 @@ export class ClientService {
 
   getSex() {
       return this.sex;
-  }
-
-  setToken(token: string) {
-    this.token = token;
-    return this;
-  }
-
-  getToken() {
-    return this.token;
   }
 }

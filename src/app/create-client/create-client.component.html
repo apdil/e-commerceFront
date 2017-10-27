@@ -1,0 +1,22 @@
+
+<form [formGroup]="formulaire">
+  <p>
+    <input type="text" formControlName="nom" placeholder="nom">
+  </p>
+  <p>
+    <input type="password" formControlName="psw" placeholder="psw">
+  </p>
+  <p>
+    <input type="text" formControlName="lastname" placeholder="lastname">
+  </p>
+  <p>
+    <input type="email" formControlName="email" placeholder="email">
+  </p>
+  <p>
+    <input type="date" formControlName="birthdate" placeholder="birthdate">
+  </p>
+  <p>
+    <input type="text" formControlName="sex" placeholder="sex">
+  </p>
+  <button (click)="aa()" [disabled]="formulaire.invalid">Go !</button>  
+</form>

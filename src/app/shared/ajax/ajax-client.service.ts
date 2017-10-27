@@ -3,20 +3,24 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
 import { UserService } from '../user/user.service';
+import { ClientService } from '../client/client.service';
 import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
 export class AjaxClientService {
 
-  // tslint:disable-next-line:quotemark
-  public client = {"name": "tartare", "password": "like"};
+  public client: ClientService;
 
   constructor(private user: UserService, private http: HttpClient) { }
 
-  connect() {
-    const header = new HttpHeaders().set('X-Auth-Token', 'WzLp92Su74uzSXB42ifriIpLX9+K5h8l5EK9csc2LBgQ7K/NkWNBh9UJzW/CitMBZi8=');
-    return this.http.get('http://localhost:8000/clients', { headers: header }).toPromise();
+  clients() {
+  //   const header = new HttpHeaders().set('X-Auth-Token', this.client.getToken());
+  //   return this.http.get('http://localhost:8000/clients', { headers: header }).toPromise();
+  }
+
+  sinscrire(client: ClientService) {
+    return this.http.post('http://localhost:8000/client', client).toPromise();
   }
 
   post() {

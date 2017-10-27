@@ -17,11 +17,15 @@ export class ConnectComponent implements OnInit {
   }
 
   click() {
-    console.log(this.ajaxClient.connect());
+    console.log(this.ajaxClient.clients());
   }
 
   post() {
     console.log(this.ajaxClient.post());
   }
+
+  // inscr() {
+  //   console.log(this.ajaxClient.sinscrire());
+  // }
 
 }

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { ArticleService } from './shared/article/article.service';
@@ -13,25 +14,29 @@ import { UserService } from './shared/user/user.service';
 import { AjaxClientService } from './shared/ajax/ajax-client.service';
 import { ConnectComponent } from './connect/connect.component';
 import { appRoutes } from './app.routes';
+import { CreateClientComponent } from './create-client/create-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConnectComponent
+    ConnectComponent,
+    CreateClientComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ArticleService,
-              ClientService,
-              PreparateurService,
-              LocationService,
-              UserService,
-              AjaxClientService
-              ],
+    ClientService,
+    PreparateurService,
+    LocationService,
+    UserService,
+    DatePipe,
+    AjaxClientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
