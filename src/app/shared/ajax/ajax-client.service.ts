@@ -2,30 +2,40 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
-import { UserService } from '../user/user.service';
-import { ClientService } from '../client/client.service';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import { Client } from '../../model/Client';
+import { Token } from '../../model/Token';
+
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class AjaxClientService {
 
-  public client: ClientService;
+  constructor(private http: HttpClient,
+              private client: Client,
+              private token: Token) { }
 
-  constructor(private user: UserService, private http: HttpClient) { }
 
-  clients() {
-  //   const header = new HttpHeaders().set('X-Auth-Token', this.client.getToken());
-  //   return this.http.get('http://localhost:8000/clients', { headers: header }).toPromise();
+  sinscrire(client: Client): Observable<Client> {
+    return this.http.post<Client>('http://localhost:8000/client', client);
   }
 
-  sinscrire(client: ClientService) {
-    return this.http.post('http://localhost:8000/client', client)
-    .subscribe((content) => { console.log(content); });
-  }
-
-  post() {
-    return this.http.post('http://localhost:8000/auth-tokens', this.client)
-    .subscribe((content) => { console.log(content); });
+  connection(login, mdp): Observable<Client> {
+    return this.http.post<any>('http://localhost:8000/auth-tokens',
+     // tslint:disable-next-line:quotemark
+     {"name": login, "password": mdp})
+    .do(reponse => {
+      // tslint:disable-next-line:forin
+      for (const responseProp in reponse) {
+        switch (responseProp) {
+          case 'id': this.token.id = reponse[responseProp]; break;
+          case 'value': this.token.value = reponse[responseProp]; break;
+          case 'createdAt': this.token.date = reponse[responseProp]; break;
+        }
+      }
+    })
+    .map(reponse => reponse.client);
   }
 }

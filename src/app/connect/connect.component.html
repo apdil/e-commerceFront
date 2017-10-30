@@ -1,5 +1,5 @@
-<input type="text" [(ngModel)]="name">
-<input type="password" [(ngModel)]="password">
-<button (click)="click()">get</button>
-<button (click)="post()">post</button>
-<button (click)="inscr()">inscrire</button>
+<form [formGroup]="formulaire">
+    <input type="text" formControlName="name" placeholder="name">
+    <input type="password" formControlName="psw" placeholder="psw">
+    <button (click)="connect()">Connection</button>
+</form>

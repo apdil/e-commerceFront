@@ -6,15 +6,18 @@ import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { ArticleService } from './shared/article/article.service';
-import { ClientService } from './shared/client/client.service';
-import { PreparateurService } from './shared/preparateur/preparateur.service';
-import { LocationService } from './shared/location/location.service';
-import { UserService } from './shared/user/user.service';
 import { AjaxClientService } from './shared/ajax/ajax-client.service';
 import { ConnectComponent } from './connect/connect.component';
 import { appRoutes } from './app.routes';
 import { CreateClientComponent } from './create-client/create-client.component';
+import { Client } from './model/Client';
+import { Location } from './model/Location';
+import { Article } from './model/Article';
+import { Preparateur } from './model/Preparateur';
+import { Token } from './model/Token';
+import { Commande } from './model/Commande';
+import { Categorie } from './model/Categorie';
+import { Basket } from './model/Basket';
 
 @NgModule({
   declarations: [
@@ -29,13 +32,17 @@ import { CreateClientComponent } from './create-client/create-client.component';
     HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ArticleService,
-    ClientService,
-    PreparateurService,
-    LocationService,
-    UserService,
+  providers: [
     DatePipe,
-    AjaxClientService
+    AjaxClientService,
+    Client,
+    Location,
+    Article,
+    Preparateur,
+    Token,
+    Commande,
+    Categorie,
+    Basket
   ],
   bootstrap: [AppComponent]
 })
