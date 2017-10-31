@@ -1,0 +1,12 @@
+
+<div *ngFor='let article of articles'>
+  <p>{{article.id}}</p>
+  <p><a [routerLink]='["/article", article.id]'>{{article.name}}</a></p>
+  <p>{{article.name}}</p>
+  <p>{{article.description}}</p>
+  <p>{{article.price}}</p>
+  <p>{{article.img}}</p>
+  <p>{{article.marque}}</p>
+  <button (click)='describ(article.id)'>Description</button>
+  <button (click)='afficher()'>afficher</button>
+</div>

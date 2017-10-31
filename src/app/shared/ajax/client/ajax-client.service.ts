@@ -3,8 +3,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import { Client } from '../../model/Client';
-import { Token } from '../../model/Token';
+import { Client } from '../../../model/Client';
+import { Token } from '../../../model/Token';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
@@ -24,9 +24,9 @@ export class AjaxClientService {
 
   connection(login, mdp): Observable<Client> {
     return this.http.post<any>('http://localhost:8000/auth-tokens',
-     // tslint:disable-next-line:quotemark
      {"name": login, "password": mdp})
     .do(reponse => {
+      // add token proprietes in Token model
       // tslint:disable-next-line:forin
       for (const responseProp in reponse) {
         switch (responseProp) {

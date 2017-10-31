@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { AjaxClientService } from './shared/ajax/ajax-client.service';
+import { AjaxClientService } from './shared/ajax/client/ajax-client.service';
 import { ConnectComponent } from './connect/connect.component';
 import { appRoutes } from './app.routes';
 import { CreateClientComponent } from './create-client/create-client.component';
@@ -18,12 +18,17 @@ import { Token } from './model/Token';
 import { Commande } from './model/Commande';
 import { Categorie } from './model/Categorie';
 import { Basket } from './model/Basket';
+import { DisplayArticlesComponent } from './display-articles/display-articles.component';
+import { AjaxArticlesService } from './shared/ajax/article/ajax-articles.service';
+import { FicheArticleComponent } from './fiche-article/fiche-article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnectComponent,
-    CreateClientComponent
+    CreateClientComponent,
+    DisplayArticlesComponent,
+    FicheArticleComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { Basket } from './model/Basket';
   providers: [
     DatePipe,
     AjaxClientService,
+    AjaxArticlesService,
     Client,
     Location,
     Article,

@@ -3,7 +3,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 import { Client } from '../model/Client';
-import { AjaxClientService } from '../shared/ajax/ajax-client.service';
+import { AjaxClientService } from '../shared/ajax/client/ajax-client.service';
 
 @Component({
   selector: 'app-create-client',

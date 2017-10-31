@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-import { AjaxClientService } from '../shared/ajax/ajax-client.service';
+import { AjaxClientService } from '../shared/ajax/client/ajax-client.service';
 
 import 'rxjs/add/operator/map';
 import { Client } from '../model/Client';

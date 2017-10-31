@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AjaxClientService } from './shared/ajax/ajax-client.service';
+import { AjaxClientService } from './shared/ajax/client/ajax-client.service';
 
 @Component({
   selector: 'app-root',
