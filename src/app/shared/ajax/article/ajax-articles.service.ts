@@ -16,7 +16,10 @@ export class AjaxArticlesService {
   }
 
   getById(id): Observable<Article> {
-    const header = new HttpHeaders().set('X-Auth-Token', this.token.value);
-    return this.http.get<Article>('http://localhost:8000/article/' + id, {headers: header});
+    return this.http.get<Article>('http://localhost:8000/article/' + id);
   }
+  // getById(id): Observable<Article> {
+  //   const header = new HttpHeaders().set('X-Auth-Token', this.token.value);
+  //   return this.http.get<Article>('http://localhost:8000/article/' + id, {headers: header});
+  // }
 }
