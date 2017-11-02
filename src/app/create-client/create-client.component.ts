@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
-import { Client } from '../model/Client';
 import { AjaxClientService } from '../shared/ajax/client/ajax-client.service';
+import { Inscription } from '../model/Inscription';
 
 @Component({
   selector: 'app-create-client',
@@ -15,7 +15,7 @@ export class CreateClientComponent implements OnInit {
   formulaire: FormGroup;
 
   constructor(private form: FormBuilder,
-              private client: Client,
+              private inscription: Inscription,
               private ajaxClient: AjaxClientService,
               private datePipe: DatePipe) { }
 
@@ -32,16 +32,17 @@ export class CreateClientComponent implements OnInit {
 
   createClient() {
     if (this.formulaire.valid) {
-      this.client.name = this.formulaire.value.nom;
-      this.client.plainPassword = this.formulaire.value.psw;
-      this.client.lastname = this.formulaire.value.lastname;
-      this.client.email = this.formulaire.value.email;
-      this.client.sex = this.formulaire.value.sex;
+      this.inscription.name = this.formulaire.value.nom;
+      this.inscription.plainPassword = this.formulaire.value.psw;
+      this.inscription.lastname = this.formulaire.value.lastname;
+      this.inscription.email = this.formulaire.value.email;
+      this.inscription.sex = this.formulaire.value.sex;
 
       const t = new Date (this.formulaire.value.birthdate);
-      this.client.birthdate = this.datePipe.transform(t, 'dd-MM-y');
+      this.inscription.birthdate = this.datePipe.transform(t, 'dd-MM-y');
 
-      this.ajaxClient.sinscrire(this.client).subscribe((client) => {
+      console.log(this.inscription);
+      this.ajaxClient.sinscrire(this.inscription).subscribe((client) => {
          console.log(client);
       });
     }

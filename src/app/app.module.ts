@@ -21,6 +21,7 @@ import { Basket } from './model/Basket';
 import { DisplayArticlesComponent } from './display-articles/display-articles.component';
 import { AjaxArticlesService } from './shared/ajax/article/ajax-articles.service';
 import { FicheArticleComponent } from './fiche-article/fiche-article.component';
+import { Inscription } from './model/Inscription';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { FicheArticleComponent } from './fiche-article/fiche-article.component';
     Token,
     Commande,
     Categorie,
-    Basket
+    Basket,
+    Inscription
   ],
   bootstrap: [AppComponent]
 })

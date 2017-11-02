@@ -8,6 +8,7 @@ import { Token } from '../../../model/Token';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
+import { Inscription } from '../../../model/Inscription';
 
 
 @Injectable()
@@ -18,8 +19,8 @@ export class AjaxClientService {
               private token: Token) { }
 
 
-  sinscrire(client: Client): Observable<Client> {
-    return this.http.post<Client>('http://localhost:8000/client', client);
+  sinscrire(client: Inscription): Observable<Inscription> {
+    return this.http.post<Inscription>('http://localhost:8000/client', client);
   }
 
   connection(login, mdp): Observable<Client> {
